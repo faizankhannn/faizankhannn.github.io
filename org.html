@@ -1,0 +1,627 @@
+<script src="http://www.google.com/jsapi" type="text/javascript"></script>
+<script type="text/javascript">google.load("jquery", "1.3.2");</script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight: 300;
+		font-size: 18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+
+	h1 {
+		font-weight: 300;
+	}
+
+	.disclaimerbox {
+		background-color: #eee;
+		border: 1px solid #eeeeee;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	a:link,
+	a:visited {
+		color: #1367a7;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #208799;
+	}
+
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+
+	.layered-paper-big {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The top layer shadow */
+			5px 5px 0 0px #fff,
+			/* The second layer */
+			5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The second layer shadow */
+			10px 10px 0 0px #fff,
+			/* The third layer */
+			10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The third layer shadow */
+			15px 15px 0 0px #fff,
+			/* The fourth layer */
+			15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The fourth layer shadow */
+			20px 20px 0 0px #fff,
+			/* The fifth layer */
+			20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The fifth layer shadow */
+			25px 25px 0 0px #fff,
+			/* The fifth layer */
+			25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The top layer shadow */
+			5px 5px 0 0px #fff,
+			/* The second layer */
+			5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The second layer shadow */
+			10px 10px 0 0px #fff,
+			/* The third layer */
+			10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	hr {
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+</style>
+
+<html>
+
+<head>
+	<title>Audiovisual Synthesis</title>
+	<meta property="og:title" content="Audiovisual Synthesis " />
+</head>
+
+<body>
+	<br>
+	<center>
+		<span style="font-size:42px">Approaches</span>
+		<table align=center width=600px>
+			<tr>
+				<td align=center width=100px>
+					<center>
+						<span style="font-size:20px"><a href="https://arxiv.org/abs/1710.07654">Deep Voice 3</a></span>
+					</center>
+				</td>
+				<td align=center width=100px>
+					<center>
+						<span style="font-size:20px"><a href="https://arxiv.org/abs/1710.08969">Attention Based
+								TTS</a></span>
+					</center>
+				</td>
+				<td align=center width=100px>
+					<center>
+						<span style="font-size:20px"><a href="https://arxiv.org/abs/1803.09047">Prosody
+								Transfer</a></span>
+					</center>
+				</td>
+				<td align=center width=100px>
+					<center>
+						<span style="font-size:20px"><a href="https://arxiv.org/abs/1809.08895">Transformers </a></span>
+					</center>
+				</td>
+			</tr>
+		</table>
+	</center>
+
+
+
+	<br>
+	<table align=center width=850px>
+		<tr>
+			<td width=400px>
+				<center>
+					<a href="./images/fig_teaser.jpg"><img class="rounded"
+							src="https://miro.medium.com/max/3330/1*7HOERatJ83E1KkKr1SVAug.png" height="300px"></img>
+						</href></a><br>
+				</center>
+			</td>
+		</tr>
+		<td width=400px>
+			<center>
+				<span style="font-size:14px"><i> The project is to convert textual input of any individual to an output
+						of a potential individual along with the alignment of audio between the input and the
+						output..</i>
+			</center>
+		</td>
+
+	</table>
+
+	<br>
+	<hr>
+
+	<table align=center width=850px>
+		<center>
+			<h1>Abstract - Deep Voice 3</h1>
+		</center>
+	</table>
+	We present Deep Voice 3, a fully-convolutional attention-based neural text-to-speech (TTS) system. Deep Voice 3
+	matches state-of-the-art neural speech synthesis systems in naturalness while training ten times faster. We scale
+	Deep Voice 3 to data set sizes unprecedented for TTS, training on more than eight hundred hours of audio from over
+	two thousand speakers. In addition, we identify common error modes of attention-based speech synthesis networks,
+	demonstrate how to mitigate them, and compare several different waveform synthesis methods. We also describe how to
+	scale inference to ten million queries per day on one single-GPU server.
+	<br><br>
+	<br>
+
+	<table align=center width=600px>
+		<tr>
+			<!--<td width=300px align=left>-->
+			<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+			<td><a href="https://arxiv.org/pdf/1710.07654.pdf"><img class="layered-paper-big" style="height:175px"
+						src="./images/deepvoice.png" /></a></td>
+			<td><span style="font-size:14pt">Wei Ping, Kainan Peng, Andrew Gibiansky, Sercan O. Arik, Ajay Kannan,
+					Sharan Narang, Jonathan Raiman, John Miller<br>
+					Deep Voice 3: Scaling Text-to-Speech with Convolutional Sequence Learning.<br>
+					On ArXiv, 2018 .</a>
+				</span>
+			</td>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+
+	<table align=center width=850px>
+		<center>
+			<h1>Abstract - Attention-Based TTS</h1>
+		</center>
+	</table>
+	This paper describes a novel text-to-speech (TTS) technique based on deep convolutional neural networks (CNN),
+	without any recurrent units. Recurrent neural network (RNN) has been a standard technique to model sequential data
+	recently, and this technique has been used in some cutting-edge neural TTS techniques. However, training RNN
+	component often requires a very powerful computer, or very long time typically several days or weeks. Recent other
+	studies, on the other hand, have shown that CNN-based sequence synthesis can be much faster than RNN-based
+	techniques, because of high parallelizability. The objective of this paper is to show an alternative neural TTS
+	system, based only on CNN, that can alleviate these economic costs of training. In our experiment, the proposed Deep
+	Convolutional TTS can be sufficiently trained only in a night (15 hours), using an ordinary gaming PC equipped with
+	two GPUs, while the quality of the synthesized speech was almost acceptable.
+	<br><br>
+	<br>
+
+	<table align=center width=600px>
+		<tr>
+			<!--<td width=300px align=left>-->
+			<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+			<td><a href="https://arxiv.org/pdf/1710.08969.pdf"><img class="layered-paper-big" style="height:175px"
+						src="./images/attention.png" /></a></td>
+			<td><span style="font-size:14pt">Hideyuki Tachibana, Katsuya Uenoyama, Shunsuke Aihara<br>
+					Efficiently Trainable Text-to-Speech System Based on Deep Convolutional Networks with Guided
+					Attention<br>
+					On ArXiv, 2017 .</a>
+				</span>
+			</td>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+
+	<table align=center width=850px>
+		<center>
+			<h1>Abstract- Prosody Transfer</h1>
+		</center>
+	</table>
+	We present an extension to the Tacotron speech synthesis architecture that learns a latent embedding space of
+	prosody, derived from a reference acoustic representation containing the desired prosody. We show that conditioning
+	Tacotron on this learned embedding space results in synthesized audio that matches the prosody of the reference
+	signal with fine time detail even when the reference and synthesis speakers are different. Additionally, we show
+	that a reference prosody embedding can be used to synthesize text that is different from that of the reference
+	utterance. We define several quantitative and subjective metrics for evaluating prosody transfer, and report results
+	with accompanying audio samples from single-speaker and 44-speaker Tacotron models on a prosody transfer task.
+	<br><br>
+	<br>
+
+	<table align=center width=600px>
+		<tr>
+			<!--<td width=300px align=left>-->
+			<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+			<td><a href="https://arxiv.org/pdf/1803.09047.pdf"><img class="layered-paper-big" style="height:175px"
+						src="./images/prosody.png" /></a></td>
+			<td><span style="font-size:14pt">RJ Skerry-Ryan, Eric Battenberg, Ying Xiao, Yuxuan Wang, Daisy Stanton,
+					Joel Shor, Ron J. Weiss, Rob Clark, Rif A. Saurous<br>
+					Towards End-to-End Prosody Transfer for Expressive Speech Synthesis with Tacotron<br>
+					On ArXiv, 2018.</a>
+				</span>
+			</td>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+
+	<table align=center width=850px>
+		<center>
+			<h1>Abstract - Transformers</h1>
+		</center>
+	</table>
+	n this paper, we introduce and adapt the multi-head attention mechanism to replace the RNN structures and also the
+	original attention mechanism in Tacotron2. With the help of multi-head self-attention, the hidden states in the
+	encoder and decoder are constructed in parallel, which improves the training efficiency. Meanwhile, any two inputs
+	at different times are connected directly by self-attention mechanism, which solves the long range dependency
+	problem effectively. Using phoneme sequences as input, our Transformer TTS network generates mel spectrograms,
+	followed by a WaveNet vocoder to output the final audio results. Experiments are conducted to test the efficiency
+	and performance of our new network. For the efficiency, our Transformer TTS network can speed up the training about
+	4.25 times faster compared with Tacotron2. For the performance, rigorous human tests show that our proposed model
+	achieves state-of-the-art performance (outperforms Tacotron2 with a gap of 0.048) and is very close to human quality
+	(4.39 vs 4.44 in MOS).
+	<br><br>
+	<br>
+
+	<table align=center width=600px>
+		<tr>
+			<!--<td width=300px align=left>-->
+			<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+			<td><a href="https://arxiv.org/pdf/1809.08895.pdf"><img class="layered-paper-big" style="height:175px"
+						src="./images/transformer.png" /></a></td>
+			<td><span style="font-size:14pt">Naihan Li, Shujie Liu, Yanqing Liu, Sheng Zhao, Ming Liu, Ming Zhou<br>
+					Neural Speech Synthesis with Transformer Network.<br>
+					On ArXiv, 2019.</a>
+				</span>
+			</td>
+			</td>
+		</tr>
+	</table>
+	<br>
+	<hr>
+
+	<center>
+		<h1>Samples</h1>
+	</center> <br>
+
+	<table align=center style="margin:0 0 0 -10%">
+
+		<tbody>
+			<thead>
+				<th colspan="1">Reference Text</th>
+				<th colspan="1"></th>
+				<!-- <th colspan="3"><span style="font-size:24px;">Input</span></th> -->
+				<th>Deep Voice 3 - Female</th>
+				<th>Deep Voice 3 - Male</th>
+				<th>Output-3</th>
+			</thead>
+
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+			<tr></tr>
+
+
+			<tr>
+				<th> Let's learn about matrices. <br>
+
+				</th>
+				<th rowspan="16">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/0_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/0_checkpoint_step002010000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="http://trinity.vision.cs.cmu.edu:12749/evaluation/user_study/ours/res/3_obama.wav"
+							type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+
+			<tr>
+				<th> So what is a,What do I mean when I say matrices?
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/1_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/1_checkpoint_step002010000_alignment.png" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source
+							src="http://trinity.vision.cs.cmu.edu:12749/evaluation/user_study/ours/res/3_billclinton.wav"
+							type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+
+			<tr>
+				<th>Well, matrices is just the plural for matrix, which is probably a word you're familiar with more
+					because of Hollywood than because of mathematics.
+
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/2_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/2_checkpoint_step002010000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/MLK03/carlsagan_98000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+
+			<tr>
+				<th> So what is a matrix?
+
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/3_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/3_checkpoint_step002010000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/MLK03/claudeshannon_104000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+
+
+			<tr>
+				<th>Well, it's actually a pretty simple idea.
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/4_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/4_checkpoint_step002010000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="http://trinity.vision.cs.cmu.edu:12749/evaluation/user_study/ours/res/3_nelson.wav"
+							type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+
+			<tr>
+				<th>It's just a table of numbers, that's all a matrix is.
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/5_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/5_checkpoint_step002010000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="http://trinity.vision.cs.cmu.edu:12749/evaluation/user_study/ours/res/3_oprah.wav"
+							type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+
+			<tr>
+				<th>So let me draw matrix for you.
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/6_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/6_checkpoint_step002010000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source
+							src="http://trinity.vision.cs.cmu.edu:12749/evaluation/user_study/ours/res/3_richardhamming.wav"
+							type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+
+			<tr>
+				<th>I don't like that toothpaste-colored blue, so let me use another color.
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/7_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/7_checkpoint_step002010000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source
+							src="http://trinity.vision.cs.cmu.edu:12749/evaluation/user_study/ours/res/3_stephenhawking.wav"
+							type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+
+			<tr>
+				<th>So this is an example of a matrix.
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/8_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/8_checkpoint_step002010000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source
+							src="http://trinity.vision.cs.cmu.edu:12749/evaluation/user_study/ours/res/3_takeokanade.wav"
+							type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+
+			<tr>
+				<th>I'm going to pick some random numbers out: 5, 1, 2, 3, 0, minus 5.
+				</th>
+				<td>
+					<audio controls="">
+						<source src="./audios/female/9_checkpoint_step002740000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source src="./audios/male/9_checkpoint_step002010000.wav" type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+				<td>
+					<audio controls="">
+						<source
+							src="http://trinity.vision.cs.cmu.edu:12749/evaluation/user_study/ours/res/3_theresamay.wav"
+							type="audio/wav">
+						Your browser does not support the audio element.
+					</audio>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+
+</body>
+
+</html>

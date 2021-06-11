@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Project Page</title>
+	<meta property="og:title" content="Project Page " />
+</head>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight: 300;
+		font-size: 18px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+		/* width: 1100px; */
+	}
+
+	h1 {
+		font-weight: 300;
+	}
+
+	.disclaimerbox {
+		background-color: #eee;
+		border: 1px solid #eeeeee;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	a:link,
+	a:visited {
+		color: #1367a7;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #208799;
+	}
+
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+
+	.layered-paper-big {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The top layer shadow */
+			5px 5px 0 0px #fff,
+			/* The second layer */
+			5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The second layer shadow */
+			10px 10px 0 0px #fff,
+			/* The third layer */
+			10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The third layer shadow */
+			15px 15px 0 0px #fff,
+			/* The fourth layer */
+			15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The fourth layer shadow */
+			20px 20px 0 0px #fff,
+			/* The fifth layer */
+			20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The fifth layer shadow */
+			25px 25px 0 0px #fff,
+			/* The fifth layer */
+			25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The top layer shadow */
+			5px 5px 0 0px #fff,
+			/* The second layer */
+			5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The second layer shadow */
+			10px 10px 0 0px #fff,
+			/* The third layer */
+			10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	hr {
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+
+	/* Style the tab */
+	.tab {
+		overflow: hidden;
+		border: 1px solid #ccc;
+		background-color: #f1f1f1;
+	}
+
+	/* Style the buttons inside the tab */
+	.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 17px;
+	}
+
+	/* Change background color of buttons on hover */
+	.tab button:hover {
+		background-color: #ddd;
+	}
+
+	/* Create an active/current tablink class */
+	.tab button.active {
+		background-color: #ccc;
+	}
+
+	/* Style the tab content */
+	.tabcontent {
+		display: none;
+		/* padding: 6px 12px; */
+		/* border-top: none; */
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight: 300;
+		font-size: 18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1600px;
+	}
+
+	table {
+		border-collapse: collapse;
+	}
+
+	th,
+	td {
+		padding: 10px;
+	}
+
+
+	tr:hover {
+		background-color: #f5f5f5;
+	}
+
+	tr:nth-child(even) {
+		background-color: #f2f2f2;
+	}
+</style>
+
+<body>
+	<div class="tab">
+		<button class="tablinks" onclick="func(event, 'About')">About</button>
+		<button class="tablinks" onclick="func(event, 'Results')">Results</button>
+		<button class="tablinks" onclick="func(event, 'Prosody')" id="defaultOpen">Prosody Transfer</button>
+		<button class="tablinks" onclick="func(event, 'IITM')" id="defaultOpen">IITM-Dataset</button>
+		<button class="tablinks" onclick="func(event, 'Observations')">Observations</button>
+	</div>
+	<div id="About" class="tabcontent">
+		<br>
+
+		<center>
+			<h1>About</h1>
+
+			Project page for lip synced Educational Lecture Videos converted from American/British English to Indian
+			English
+		</center>
+
+		<br>
+		<center>
+			<h1>Methods Explored</h1>
+			<table align=center width=600px>
+				<tr>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:20px"><a href="#rp1">Deep Voice
+									3</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:20px"><a href="#rp2">Attention Based
+									TTS</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:20px"><a href="#rp3">Prosody
+									Transfer</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:20px"><a href="#rp4">Transformers
+								</a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</center>
+
+		<br>
+		<hr>
+
+		<table align=center width=850px>
+			<center>
+				<h1 id="rp1">Abstract - Deep Voice 3</h1>
+			</center>
+		</table>
+		We present Deep Voice 3, a fully-convolutional attention-based neural text-to-speech (TTS) system. Deep Voice 3
+		matches state-of-the-art neural speech synthesis systems in naturalness while training ten times faster. We
+		scale
+		Deep Voice 3 to data set sizes unprecedented for TTS, training on more than eight hundred hours of audio from
+		over
+		two thousand speakers. In addition, we identify common error modes of attention-based speech synthesis networks,
+		demonstrate how to mitigate them, and compare several different waveform synthesis methods. We also describe how
+		to
+		scale inference to ten million queries per day on one single-GPU server.
+		<br><br>
+		<br>
+
+		<table align=center width=600px>
+			<tr>
+				<!--<td width=300px align=left>-->
+				<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+				<td><a href="https://arxiv.org/pdf/1710.07654.pdf"><img class="layered-paper-big" style="height:175px"
+							src="./images/deepvoice.png" /></a></td>
+				<td><span style="font-size:14pt">Wei Ping, Kainan Peng, Andrew Gibiansky, Sercan O. Arik, Ajay Kannan,
+						Sharan Narang, Jonathan Raiman, John Miller<br>
+						Deep Voice 3: Scaling Text-to-Speech with Convolutional Sequence Learning.<br>
+						On ArXiv, 2018 .</a>
+					</span>
+				</td>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr>
+
+		<table align=center width=850px>
+			<center>
+				<h1 id="rp2">Abstract - Attention-Based TTS</h1>
+			</center>
+		</table>
+		This paper describes a novel text-to-speech (TTS) technique based on deep convolutional neural networks (CNN),
+		without any recurrent units. Recurrent neural network (RNN) has been a standard technique to model sequential
+		data
+		recently, and this technique has been used in some cutting-edge neural TTS techniques. However, training RNN
+		component often requires a very powerful computer, or very long time typically several days or weeks. Recent
+		other
+		studies, on the other hand, have shown that CNN-based sequence synthesis can be much faster than RNN-based
+		techniques, because of high parallelizability. The objective of this paper is to show an alternative neural TTS
+		system, based only on CNN, that can alleviate these economic costs of training. In our experiment, the proposed
+		Deep
+		Convolutional TTS can be sufficiently trained only in a night (15 hours), using an ordinary gaming PC equipped
+		with
+		two GPUs, while the quality of the synthesized speech was almost acceptable.
+		<br><br>
+		<br>
+
+		<table align=center width=600px>
+			<tr>
+				<!--<td width=300px align=left>-->
+				<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+				<td><a href="https://arxiv.org/pdf/1710.08969.pdf"><img class="layered-paper-big" style="height:175px"
+							src="./images/attention.png" /></a></td>
+				<td><span style="font-size:14pt">Hideyuki Tachibana, Katsuya Uenoyama, Shunsuke Aihara<br>
+						Efficiently Trainable Text-to-Speech System Based on Deep Convolutional Networks with Guided
+						Attention<br>
+						On ArXiv, 2017 .</a>
+					</span>
+				</td>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr>
+
+		<table align=center width=850px>
+			<center>
+				<h1 id="rp3">Abstract- Prosody Transfer</h1>
+			</center>
+		</table>
+		We present an extension to the Tacotron speech synthesis architecture that learns a latent embedding space of
+		prosody, derived from a reference acoustic representation containing the desired prosody. We show that
+		conditioning
+		Tacotron on this learned embedding space results in synthesized audio that matches the prosody of the reference
+		signal with fine time detail even when the reference and synthesis speakers are different. Additionally, we show
+		that a reference prosody embedding can be used to synthesize text that is different from that of the reference
+		utterance. We define several quantitative and subjective metrics for evaluating prosody transfer, and report
+		results
+		with accompanying audio samples from single-speaker and 44-speaker Tacotron models on a prosody transfer task.
+		<br><br>
+		<br>
+
+		<table align=center width=600px>
+			<tr>
+				<!--<td width=300px align=left>-->
+				<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+				<td><a href="https://arxiv.org/pdf/1803.09047.pdf"><img class="layered-paper-big" style="height:175px"
+							src="./images/prosody.png" /></a></td>
+				<td><span style="font-size:14pt">RJ Skerry-Ryan, Eric Battenberg, Ying Xiao, Yuxuan Wang, Daisy Stanton,
+						Joel Shor, Ron J. Weiss, Rob Clark, Rif A. Saurous<br>
+						Towards End-to-End Prosody Transfer for Expressive Speech Synthesis with Tacotron<br>
+						On ArXiv, 2018.</a>
+					</span>
+				</td>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr>
+
+		<table align=center width=850px>
+			<center>
+				<h1 id="rp4">Abstract - Transformers</h1>
+			</center>
+		</table>
+		n this paper, we introduce and adapt the multi-head attention mechanism to replace the RNN structures and also
+		the
+		original attention mechanism in Tacotron2. With the help of multi-head self-attention, the hidden states in the
+		encoder and decoder are constructed in parallel, which improves the training efficiency. Meanwhile, any two
+		inputs
+		at different times are connected directly by self-attention mechanism, which solves the long range dependency
+		problem effectively. Using phoneme sequences as input, our Transformer TTS network generates mel spectrograms,
+		followed by a WaveNet vocoder to output the final audio results. Experiments are conducted to test the
+		efficiency
+		and performance of our new network. For the efficiency, our Transformer TTS network can speed up the training
+		about
+		4.25 times faster compared with Tacotron2. For the performance, rigorous human tests show that our proposed
+		model
+		achieves state-of-the-art performance (outperforms Tacotron2 with a gap of 0.048) and is very close to human
+		quality
+		(4.39 vs 4.44 in MOS).
+		<br><br>
+		<br>
+
+		<table align=center width=600px>
+			<tr>
+				<!--<td width=300px align=left>-->
+				<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+				<td><a href="https://arxiv.org/pdf/1809.08895.pdf"><img class="layered-paper-big" style="height:175px"
+							src="./images/transformer.png" /></a></td>
+				<td><span style="font-size:14pt">Naihan Li, Shujie Liu, Yanqing Liu, Sheng Zhao, Ming Liu, Ming Zhou<br>
+						Neural Speech Synthesis with Transformer Network.<br>
+						On ArXiv, 2019.</a>
+					</span>
+				</td>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr>
+	</div>
+	<div id="Results" class="tabcontent">
+		<center>
+			<h2>Full video</h2>
+		</center>
+		<table align=center style="width: 100%;" border="1" border-collapse>
+			<tbody>
+				<tr>
+					<td style="text-align:center">
+						<iframe
+							src="https://drive.google.com/file/d/1tgTxKK1wzN4no85ZQsJIGVUYpJwBGumM/preview"></iframe>
+					</td>
+					<td style="text-align:center">
+						<iframe
+							src="https://drive.google.com/file/d/1TlC6EKJUpEuOv57igLV75Srooz4RhudP/preview"></iframe>
+					</td>
+				</tr>
+				<tr>
+					<td style="text-align:center">
+						Combined multiple short videos made from each sentence
+					</td>
+					<td style="text-align:center">
+						Combined full audio and video
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<h6>* if unable to play video try changing the browser or press pop-out button on top right of the video.</h6>
+		<br><br>
+		<center>
+			<h1>M4ML - Multivariate Calculus - 5.2 Gradient Descent</h1>
+		</center> <br>
+
+		<table align=center style="width: 100%;" id="tableMy" border="1" border-collapse>
+
+			<tbody id="myTbody">
+				<thead>
+					<th colspan="1">
+						<h3>Reference Text</h3>
+					</th>
+					<th colspan="1">
+						<h3>Original Video</h3>
+					</th>
+					<th colspan="1">
+						<h3>Deep Voice 3 - Male audio</h3>
+					</th>
+					<th colspan="1">
+						<h3>Lipsyncnet Video</h3>
+					</th>
+				</thead>
+
+			</tbody>
+		</table>
+	</div>
+
+	<div id="Prosody" class="tabcontent">
+		<table id="tableMyp" border="1" border-collapse>
+			<tbody>
+				<thead>
+					<th colspan="3">
+						<h1>Reference Audios &#8594;</h1>
+					</th>
+					<th colspan="1">
+						<h3>Original Audios</h3>
+					</th>
+					<th colspan="1">
+						<h3>IITM Female(Tamil)</h3>
+					</th>
+					<th colspan="1">
+						<h3>Khan Academy</h3>
+					</th>
+					<th colspan="1">
+						<h3>David Silver</h3>
+					</th>
+					<th colspan="1">
+						<h3>Emma Watson</h3>
+					</th>
+				</thead>
+			</tbody>
+
+			<tbody>
+				<th colspan="2">
+					<h3>Reference Text</h3>
+				</th>
+				<th colspan="1">
+					<h3>Original Videos / Audios</h3>
+				</th>
+				<td colspan="1" align="center">
+					<i>Prosody transfer to the original audio style</i>
+				</td>
+				<th colspan="1">
+					<audio controls style="width: 150px;">
+						<source src='./audios/prosody/iitmf.wav' type="audio/wav"> </audio>
+				</th>
+				<th colspan="1">
+					<audio controls style="width: 150px;">
+						<source src='./audios/prosody/kha.wav' type="audio/wav"> </audio>
+				</th>
+				<th colspan="1">
+					<audio controls style="width: 150px;">
+						<source src='./audios/prosody/dl.mp3' type="audio/wav"> </audio>
+				</th>
+				<th colspan="1">
+					<audio controls style="width: 150px;">
+						<source src='./audios/prosody/emma.mp3' type="audio/wav"> </audio>
+				</th>
+				</thead>
+
+			</tbody>
+
+			<tbody>
+				<thead>
+					<th colspan="8" style="background-color: black; color: #fff;">
+						<h1> The Science of Well-Being by Laurie Santos </h1>
+					</th>
+				</thead>
+			</tbody>
+			<tbody id="course2"></tbody>
+
+			<tbody>
+				<thead>
+					<th colspan="8" style="background-color: black; color: #fff;">
+						<h1>M4ML - Multivariate Calculus - 5.2 Gradient Descent </h1>
+					</th>
+				</thead>
+			</tbody>
+			<tbody id="course3"></tbody>
+
+			<tbody>
+				<thead>
+					<th colspan="8" style="background-color: black; color: #fff;">
+						<h1>English Language and Literature by Dr. Liza Das</h1>
+					</th>
+				</thead>
+			</tbody>
+			<tbody id="course1"></tbody>
+		</table>
+	</div>
+	<div id="IITM" class="tabcontent">
+		<h1 align=center>Few Samples from IITM Dataset</h1>
+		<table align=center style="width: 100%;" id="tableMy" border="1" border-collapse>
+			<tbody>
+				<th colspan="1">Language abbreviation</th>
+				<th colspan="2">Male</th>
+				<th colspan="2">Female</th>
+			</tbody>
+			<tbody>
+				<tr>
+					<td style="text-align:center">as</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/as-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/as-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/as-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/as-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center">bn</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/bn-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/bn-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/bn-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/bn-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center">gu</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/gu-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/gu-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/gu-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/gu-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center">hi</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/hi-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/hi-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/hi-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/hi-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center">kn</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/kn-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/kn-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/kn-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/kn-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center">ma</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ma-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ma-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ma-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ma-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center">ml</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ml-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ml-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ml-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ml-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center">ra</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ra-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ra-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ra-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ra-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center">ta</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ta-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ta-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ta-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/ta-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+				<tr>
+					<td style="text-align:center">te</td>
+					<td> <audio controls>
+							<source src='./audios/IITM/te-m1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/te-m2.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/te-f1.wav' type="audio/wav"> </audio> </td>
+					<td> <audio controls>
+							<source src='./audios/IITM/te-f2.wav' type="audio/wav"> </audio> </td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+	<div id="Observations" class="tabcontent">
+		<center>
+			<h1>Observations</h1>
+		</center> <br>
+
+		<h2>Pros</h2>
+		<ul>
+			<li>Lipsyncnet can handle a video without a face</li>
+			<li>Lips in the video are in sync with the speech</li>
+		</ul>
+		<h2>Cons/Things to work upon</h2>
+		<ul>
+			<li>Pronunciation needs to be imporved. But there is problem with homographs(same spelling different
+				pronunciation)
+				<ul>
+					<li>Below are the examples of two homographs - lead(/LEED/ and \LED) and lives(/lɪv/ and /laɪvz/) :
+					</li>
+					<li>
+						<audio controls>
+							<source src='./audios/homographs/0_lead.wav' type="audio/wav"> </audio>
+						<audio controls>
+							<source src='./audios/homographs/1_lead.wav' type="audio/wav"> </audio>
+					</li>
+					<li>
+						<audio controls>
+							<source src='./audios/homographs/0_lives.wav' type="audio/wav"> </audio>
+						<audio controls>
+							<source src='./audios/homographs/2_lives.wav' type="audio/wav"> </audio>
+						<audio controls>
+							<source src='./audios/homographs/3_lives.wav' type="audio/wav"> </audio>
+					</li>
+				</ul>
+			</li>
+			<li>The stress, attention on certain words in the original speech are observed in generated output but not
+				to the same extent as original audio</li>
+			<li>Model seems to struggle with sentences involving mathematics/equations and variables</li>
+			<li>Voice quality needs to be imporved.</li>
+			<li>Few jerks present in the video. Frame interpolation while processing required to make it smoother.</li>
+			<li>Content sync lost in processing full audio and video.</li>
+		</ul>
+		<br>
+		<br>
+		<center>
+			<h2>How far are we from translating a full Video Lecture?</h2>
+		</center>
+		<ul>
+			<li>Currently we do not have a good ASR system especially for British English.</li>
+			<li>Difficult to split Lecture videos into smaller chunks. Currently video broken down into uniform segments
+				of length 5 sec.</li>
+			<li>Once we have video splits and corresponding transcript ready, it can be translated to Indian english in
+				time less than length of the video.</li>
+		</ul>
+	</div>
+	<script>
+		function func(evt, tabs) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(tabs).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+
+		function insert(sen, v1, a1, v2) {
+			s = `<tr>
+					<th colspan='1' style="text-align:center"> ${sen} </th>
+					<td style="text-align:center">
+						<video controls width="240" height="160">
+							<source src=${v1} type="video/mp4">
+							Your browser does not support the video element.
+						</video>
+					</td>
+					<td style="text-align:center">
+						<audio controls="">
+							<source src=${a1} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<video controls width="240" height="160">
+							<source src=${v2} type="video/mp4">
+							Your browser does not support the video element.
+						</video>
+					</td>
+				</tr>`
+			return s
+		}
+
+		function insert1(sen, v1, a1, a2, a3, a4, a5) {
+			s = `<tr>
+					<td colspan='2' style="text-align:center width: 350px"> ${sen} </td>
+					<td style="text-align:center">
+						<video controls width="240" height="160">
+							<source src=${v1} type="video/mp4">
+							Your browser does not support the video element.
+						</video>
+					</td>
+					<td colspan='1' style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a1} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a2} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a3} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a4} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a5} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+				</tr>`
+			return s
+		}
+
+		function insert2(sen, a0, a1, a2, a3, a4, a5) {
+			s = `<tr>
+					<td colspan='2' style="text-align:center width: 350px"> ${sen} </td>
+					<td colspan='1' style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a0} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td colspan='1' style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a1} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a2} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a3} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a4} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<audio controls="" style="width: 150px";>
+							<source src=${a5} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+				</tr>`
+			return s
+		}
+		var table1 = document.getElementById("myTbody");
+		table1.insertAdjacentHTML("beforeend", insert("ok so now we've looked at the newton-raphson method which uses the gradient",
+			"./vids/org/mmgd_00:00:2.00_00:00:7.00.mp4",
+			"./audios/mmgd_dv3_m/0_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:00:2.00_00:00:7.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("to iteratively solve a 1d function of X say now we'll",
+			"./vids/org/mmgd_00:00:7.00_00:00:12.00.mp4",
+			"./audios/mmgd_dv3_m/1_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:00:7.00_00:00:12.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("generalize that to figure out how to do something similar with a multi dimensional function at",
+			"./vids/org/mmgd_00:00:12.00_00:00:17.00.mp4",
+			"./audios/mmgd_dv3_m/2_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:00:12.00_00:00:17.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("function of multiple variables and how to use the gradient to find the maxima and minima of",
+			"./vids/org/mmgd_00:00:17.00_00:00:22.00.mp4",
+			"./audios/mmgd_dv3_m/3_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:00:17.00_00:00:22.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("such a function later on this will let us optimize find the best fit for the",
+			"./vids/org/mmgd_00:00:22.00_00:00:27.00.mp4",
+			"./audios/mmgd_dv3_m/4_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:00:22.00_00:00:27.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("parameters of a function that we're trying to fit say I've got a function like f",
+			"./vids/org/mmgd_00:00:27.00_00:00:32.00.mp4",
+			"./audios/mmgd_dv3_m/5_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:00:27.00_00:00:32.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("equals x squared Y here this function looks like this and what I've got",
+			"./vids/org/mmgd_00:00:32.00_00:00:37.00.mp4",
+			"./audios/mmgd_dv3_m/6_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:00:32.00_00:00:37.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("here is a function that gets big and positive when X is big",
+			"./vids/org/mmgd_00:00:37.00_00:00:42.00.mp4",
+			"./audios/mmgd_dv3_m/7_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:00:37.00_00:00:42.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("f of X Y is equal to x",
+			"./vids/org/mmgd_00:01:37.00_00:01:42.00.mp4",
+			"./audios/mmgd_dv3_m/19_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:01:37.00_00:01:42.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("squared Y and so DF DX",
+			"./vids/org/mmgd_00:01:42.00_00:01:47.00.mp4",
+			"./audios/mmgd_dv3_m/20_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:01:42.00_00:01:47.00.mp4"));
+		table1.insertAdjacentHTML("beforeend", insert("90 degrees to the contour line and think about the way it's defined is it up or down",
+			"./vids/org/mmgd_00:06:12.00_00:06:17.00.mp4",
+			"./audios/mmgd_dv3_m/74_checkpoint_step002010000.wav",
+			"./vids/out/result_voice_mmgd_00:06:12.00_00:06:17.00.mp4"));
+
+		var table2 = document.getElementById("course1");
+		table2.insertAdjacentHTML("beforeend", insert1("The study of English as a discipline has had a very long history",
+			"./vids/nptel/np1.mp4",
+			"./audios/prosody/eval2/np1.wav",
+			"./audios/prosody/eval1/dv3_f-0.wav",
+			"./audios/prosody/eval3/a1.wav",
+			"./audios/prosody/eval4/dl0.wav",
+			"./audios/prosody/eval5/emma0.wav",
+		));
+		table2.insertAdjacentHTML("beforeend", insert1("and as we shall see, in one of our lectures, entitled English in India,",
+			"./vids/nptel/np2.mp4",
+			"./audios/prosody/eval2/np2.wav",
+			"./audios/prosody/eval1/dv3_f-1.wav",
+			"./audios/prosody/eval3/a2.wav",
+			"./audios/prosody/eval4/dl1.wav",
+			"./audios/prosody/eval5/emma1.wav",
+		));
+		table2.insertAdjacentHTML("beforeend", insert1("you would be surprised that as if you do not know it already",
+			"./vids/nptel/np3.mp4",
+			"./audios/prosody/eval2/np3.wav",
+			"./audios/prosody/eval1/dv3_f-2.wav",
+			"./audios/prosody/eval3/a3.wav",
+			"./audios/prosody/eval4/dl2.wav",
+			"./audios/prosody/eval5/emma2.wav",
+		));
+		table2.insertAdjacentHTML("beforeend", insert1("that study of English Literature as a discipline in colleges and universities, did not begin in the mother country, England, but in India.",
+			"./vids/nptel/np4.mp4",
+			"./audios/prosody/eval2/np4.wav",
+			"./audios/prosody/eval1/dv3_f-3.wav",
+			"./audios/prosody/eval3/a4.wav",
+			"./audios/prosody/eval4/dl3.wav",
+			"./audios/prosody/eval5/emma3.wav",
+		));
+		var table3 = document.getElementById("course2");
+		table3.insertAdjacentHTML("beforeend", insert2("Hello, and welcome to the science of happiness. I'm Professor Laurie Santos, a Professor in Psychology and Cognitive Science,",
+			"./audios/prosody/sowb/sowb1.mp3",
+			"./audios/prosody/eval10/sowb1.wav",
+			"./audios/prosody/eval11/iitmf-0.wav",
+			"./audios/prosody/eval12/a0.wav",
+			"./audios/prosody/eval13/dl-0.wav",
+			"./audios/prosody/eval14/emma-0.wav",
+		));
+		table3.insertAdjacentHTML("beforeend", insert2("and I'm excited that you're going to join me on this journey to learn a little bit about the science, and also the practice of well-being.",
+			"./audios/prosody/sowb/sowb2.mp3",
+			"./audios/prosody/eval10/sowb2.wav",
+			"./audios/prosody/eval11/iitmf-1.wav",
+			"./audios/prosody/eval12/a1.wav",
+			"./audios/prosody/eval13/dl-1.wav",
+			"./audios/prosody/eval14/emma-1.wav",
+		));
+		table3.insertAdjacentHTML("beforeend", insert2("I started these lectures here in Silliman College, right here in my home, to introduce a small set of students to the science of psychology.",
+			"./audios/prosody/sowb/sowb3.mp3",
+			"./audios/prosody/eval10/sowb3.wav",
+			"./audios/prosody/eval11/iitmf-2.wav",
+			"./audios/prosody/eval12/a2.wav",
+			"./audios/prosody/eval13/dl-2.wav",
+			"./audios/prosody/eval14/emma-2.wav",
+		));
+		table3.insertAdjacentHTML("beforeend", insert2("We thought that it might be so beneficial to Yale students, we wanted to bring it to a bigger group, and that's where you come in.",
+			"./audios/prosody/sowb/sowb4.mp3",
+			"./audios/prosody/eval10/sowb4.wav",
+			"./audios/prosody/eval11/iitmf-3.wav",
+			"./audios/prosody/eval12/a3.wav",
+			"./audios/prosody/eval13/dl-3.wav",
+			"./audios/prosody/eval14/emma-3.wav",
+		));
+		table3.insertAdjacentHTML("beforeend", insert2("You get a chance to watch these short lectures on the science of happiness, but also to think about how to develop these practices in your own life. We hope you enjoy it.",
+			"./audios/prosody/sowb/sowb5.mp3",
+			"./audios/prosody/eval10/sowb5.wav",
+			"./audios/prosody/eval11/iitmf-4.wav",
+			"./audios/prosody/eval12/a4.wav",
+			"./audios/prosody/eval13/dl-4.wav",
+			"./audios/prosody/eval14/emma-4.wav",
+		));
+		var table4 = document.getElementById("course3");
+		table4.insertAdjacentHTML("beforeend", insert2("generalize that to figure out how to do something similar with a multi dimensional function at",
+			"./audios/prosody/mmgd/mmgd1.mp3",
+			"./audios/prosody/eval15/mmgd1.wav",
+			"./audios/prosody/eval16/iitmf-0.wav",
+			"./audios/prosody/eval17/a0.wav",
+			"./audios/prosody/eval18/dl-0.wav",
+			"./audios/prosody/eval19/emma-0.wav",
+		));
+		table4.insertAdjacentHTML("beforeend", insert2("function of multiple variables and how to use the gradient to find the maxima and minima of",
+			"./audios/prosody/mmgd/mmgd2.mp3",
+			"./audios/prosody/eval15/mmgd2.wav",
+			"./audios/prosody/eval16/iitmf-1.wav",
+			"./audios/prosody/eval17/a1.wav",
+			"./audios/prosody/eval18/dl-1.wav",
+			"./audios/prosody/eval19/emma-1.wav",
+		));
+		table4.insertAdjacentHTML("beforeend", insert2("such a function later on this will let us optimize find the best fit for the",
+			"./audios/prosody/mmgd/mmgd3.mp3",
+			"./audios/prosody/eval15/mmgd3.wav",
+			"./audios/prosody/eval16/iitmf-2.wav",
+			"./audios/prosody/eval17/a2.wav",
+			"./audios/prosody/eval18/dl-2.wav",
+			"./audios/prosody/eval19/emma-2.wav",
+		));
+		table4.insertAdjacentHTML("beforeend", insert2("parameters of a function that we're trying to fit say I've got a function like f",
+			"./audios/prosody/mmgd/mmgd4.mp3",
+			"./audios/prosody/eval15/mmgd4.wav",
+			"./audios/prosody/eval16/iitmf-3.wav",
+			"./audios/prosody/eval17/a3.wav",
+			"./audios/prosody/eval18/dl-3.wav",
+			"./audios/prosody/eval19/emma-3.wav",
+		));
+		table4.insertAdjacentHTML("beforeend", insert2("equals x squared Y here this function looks like this and what I've got",
+			"./audios/prosody/mmgd/mmgd5.mp3",
+			"./audios/prosody/eval15/mmgd5.wav",
+			"./audios/prosody/eval16/iitmf-4.wav",
+			"./audios/prosody/eval17/a4.wav",
+			"./audios/prosody/eval18/dl-4.wav",
+			"./audios/prosody/eval19/emma-4.wav",
+		));									
+	</script>
+</body>
+
+</html>

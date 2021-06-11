@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+
+<head>
+	<title>Audiovisual Synthesis</title>
+	<meta property="og:title" content="Audiovisual Synthesis " />
+</head>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js" type="text/javascript"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<style type="text/css">
+	body {
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight: 300;
+		font-size: 18px;
+		margin-left: auto;
+		margin-right: auto;
+		margin-top: 0px;
+		/* width: 1100px; */
+	}
+
+	h1 {
+		font-weight: 300;
+	}
+
+	.disclaimerbox {
+		background-color: #eee;
+		border: 1px solid #eeeeee;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+		padding: 20px;
+	}
+
+	video.header-vid {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	img.header-img {
+		height: 140px;
+		border: 1px solid black;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	img.rounded {
+		border: 1px solid #eeeeee;
+		border-radius: 10px;
+		-moz-border-radius: 10px;
+		-webkit-border-radius: 10px;
+	}
+
+	a:link,
+	a:visited {
+		color: #1367a7;
+		text-decoration: none;
+	}
+
+	a:hover {
+		color: #208799;
+	}
+
+	td.dl-link {
+		height: 160px;
+		text-align: center;
+		font-size: 22px;
+	}
+
+	.layered-paper-big {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The top layer shadow */
+			5px 5px 0 0px #fff,
+			/* The second layer */
+			5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The second layer shadow */
+			10px 10px 0 0px #fff,
+			/* The third layer */
+			10px 10px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The third layer shadow */
+			15px 15px 0 0px #fff,
+			/* The fourth layer */
+			15px 15px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The fourth layer shadow */
+			20px 20px 0 0px #fff,
+			/* The fifth layer */
+			20px 20px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The fifth layer shadow */
+			25px 25px 0 0px #fff,
+			/* The fifth layer */
+			25px 25px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The fifth layer shadow */
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+	.paper-big {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The top layer shadow */
+
+		margin-left: 10px;
+		margin-right: 45px;
+	}
+
+
+	.layered-paper {
+		/* modified from: http://css-tricks.com/snippets/css/layered-paper/ */
+		box-shadow:
+			0px 0px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The top layer shadow */
+			5px 5px 0 0px #fff,
+			/* The second layer */
+			5px 5px 1px 1px rgba(0, 0, 0, 0.35),
+			/* The second layer shadow */
+			10px 10px 0 0px #fff,
+			/* The third layer */
+			10px 10px 1px 1px rgba(0, 0, 0, 0.35);
+		/* The third layer shadow */
+		margin-top: 5px;
+		margin-left: 10px;
+		margin-right: 30px;
+		margin-bottom: 5px;
+	}
+
+	.vert-cent {
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	hr {
+		border: 0;
+		height: 1px;
+		background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+	}
+
+	/* Style the tab */
+	.tab {
+		overflow: hidden;
+		border: 1px solid #ccc;
+		background-color: #f1f1f1;
+	}
+
+	/* Style the buttons inside the tab */
+	.tab button {
+		background-color: inherit;
+		float: left;
+		border: none;
+		outline: none;
+		cursor: pointer;
+		padding: 14px 16px;
+		transition: 0.3s;
+		font-size: 17px;
+	}
+
+	/* Change background color of buttons on hover */
+	.tab button:hover {
+		background-color: #ddd;
+	}
+
+	/* Create an active/current tablink class */
+	.tab button.active {
+		background-color: #ccc;
+	}
+
+	/* Style the tab content */
+	.tabcontent {
+		display: none;
+		/* padding: 6px 12px; */
+		/* border-top: none; */
+		font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+		font-weight: 300;
+		font-size: 18px;
+		margin-left: auto;
+		margin-right: auto;
+		width: 1100px;
+	}
+
+	table {
+		border-collapse: collapse;
+	}
+</style>
+
+<body>
+	<div class="tab">
+		<button class="tablinks" onclick="func(event, 'Approaches')" id="defaultOpen">Approaches</button>
+		<button class="tablinks" onclick="func(event, 'Results')">Results</button>
+		<button class="tablinks" onclick="func(event, 'Observations')">Observations</button>
+	</div>
+	<div id="Approaches" class="tabcontent">
+		<br>
+		<center>
+			<h1>Approaches</h1>
+			<table align=center width=600px>
+				<tr>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:20px"><a href="https://arxiv.org/abs/1710.07654">Deep Voice
+									3</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:20px"><a href="https://arxiv.org/abs/1710.08969">Attention Based
+									TTS</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:20px"><a href="https://arxiv.org/abs/1803.09047">Prosody
+									Transfer</a></span>
+						</center>
+					</td>
+					<td align=center width=100px>
+						<center>
+							<span style="font-size:20px"><a href="https://arxiv.org/abs/1809.08895">Transformers
+								</a></span>
+						</center>
+					</td>
+				</tr>
+			</table>
+		</center>
+
+		<br>
+		<table align=center width=850px>
+			<tr>
+				<td width=400px>
+					<center>
+						<a href="./images/fig_teaser.jpg"><img class="rounded"
+								src="https://miro.medium.com/max/3330/1*7HOERatJ83E1KkKr1SVAug.png"
+								height="300px"></img>
+							</href></a><br>
+					</center>
+				</td>
+			</tr>
+			<td width=400px>
+				<center>
+					<span style="font-size:14px"><i> The project is to convert textual input of any individual to an
+							output
+							of a potential individual along with the alignment of audio between the input and the
+							output..</i>
+				</center>
+			</td>
+
+		</table>
+
+		<br>
+		<hr>
+
+		<table align=center width=850px>
+			<center>
+				<h1>Abstract - Deep Voice 3</h1>
+			</center>
+		</table>
+		We present Deep Voice 3, a fully-convolutional attention-based neural text-to-speech (TTS) system. Deep Voice 3
+		matches state-of-the-art neural speech synthesis systems in naturalness while training ten times faster. We
+		scale
+		Deep Voice 3 to data set sizes unprecedented for TTS, training on more than eight hundred hours of audio from
+		over
+		two thousand speakers. In addition, we identify common error modes of attention-based speech synthesis networks,
+		demonstrate how to mitigate them, and compare several different waveform synthesis methods. We also describe how
+		to
+		scale inference to ten million queries per day on one single-GPU server.
+		<br><br>
+		<br>
+
+		<table align=center width=600px>
+			<tr>
+				<!--<td width=300px align=left>-->
+				<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+				<td><a href="https://arxiv.org/pdf/1710.07654.pdf"><img class="layered-paper-big" style="height:175px"
+							src="./images/deepvoice.png" /></a></td>
+				<td><span style="font-size:14pt">Wei Ping, Kainan Peng, Andrew Gibiansky, Sercan O. Arik, Ajay Kannan,
+						Sharan Narang, Jonathan Raiman, John Miller<br>
+						Deep Voice 3: Scaling Text-to-Speech with Convolutional Sequence Learning.<br>
+						On ArXiv, 2018 .</a>
+					</span>
+				</td>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr>
+
+		<table align=center width=850px>
+			<center>
+				<h1>Abstract - Attention-Based TTS</h1>
+			</center>
+		</table>
+		This paper describes a novel text-to-speech (TTS) technique based on deep convolutional neural networks (CNN),
+		without any recurrent units. Recurrent neural network (RNN) has been a standard technique to model sequential
+		data
+		recently, and this technique has been used in some cutting-edge neural TTS techniques. However, training RNN
+		component often requires a very powerful computer, or very long time typically several days or weeks. Recent
+		other
+		studies, on the other hand, have shown that CNN-based sequence synthesis can be much faster than RNN-based
+		techniques, because of high parallelizability. The objective of this paper is to show an alternative neural TTS
+		system, based only on CNN, that can alleviate these economic costs of training. In our experiment, the proposed
+		Deep
+		Convolutional TTS can be sufficiently trained only in a night (15 hours), using an ordinary gaming PC equipped
+		with
+		two GPUs, while the quality of the synthesized speech was almost acceptable.
+		<br><br>
+		<br>
+
+		<table align=center width=600px>
+			<tr>
+				<!--<td width=300px align=left>-->
+				<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+				<td><a href="https://arxiv.org/pdf/1710.08969.pdf"><img class="layered-paper-big" style="height:175px"
+							src="./images/attention.png" /></a></td>
+				<td><span style="font-size:14pt">Hideyuki Tachibana, Katsuya Uenoyama, Shunsuke Aihara<br>
+						Efficiently Trainable Text-to-Speech System Based on Deep Convolutional Networks with Guided
+						Attention<br>
+						On ArXiv, 2017 .</a>
+					</span>
+				</td>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr>
+
+		<table align=center width=850px>
+			<center>
+				<h1>Abstract- Prosody Transfer</h1>
+			</center>
+		</table>
+		We present an extension to the Tacotron speech synthesis architecture that learns a latent embedding space of
+		prosody, derived from a reference acoustic representation containing the desired prosody. We show that
+		conditioning
+		Tacotron on this learned embedding space results in synthesized audio that matches the prosody of the reference
+		signal with fine time detail even when the reference and synthesis speakers are different. Additionally, we show
+		that a reference prosody embedding can be used to synthesize text that is different from that of the reference
+		utterance. We define several quantitative and subjective metrics for evaluating prosody transfer, and report
+		results
+		with accompanying audio samples from single-speaker and 44-speaker Tacotron models on a prosody transfer task.
+		<br><br>
+		<br>
+
+		<table align=center width=600px>
+			<tr>
+				<!--<td width=300px align=left>-->
+				<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+				<td><a href="https://arxiv.org/pdf/1803.09047.pdf"><img class="layered-paper-big" style="height:175px"
+							src="./images/prosody.png" /></a></td>
+				<td><span style="font-size:14pt">RJ Skerry-Ryan, Eric Battenberg, Ying Xiao, Yuxuan Wang, Daisy Stanton,
+						Joel Shor, Ron J. Weiss, Rob Clark, Rif A. Saurous<br>
+						Towards End-to-End Prosody Transfer for Expressive Speech Synthesis with Tacotron<br>
+						On ArXiv, 2018.</a>
+					</span>
+				</td>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr>
+
+		<table align=center width=850px>
+			<center>
+				<h1>Abstract - Transformers</h1>
+			</center>
+		</table>
+		n this paper, we introduce and adapt the multi-head attention mechanism to replace the RNN structures and also
+		the
+		original attention mechanism in Tacotron2. With the help of multi-head self-attention, the hidden states in the
+		encoder and decoder are constructed in parallel, which improves the training efficiency. Meanwhile, any two
+		inputs
+		at different times are connected directly by self-attention mechanism, which solves the long range dependency
+		problem effectively. Using phoneme sequences as input, our Transformer TTS network generates mel spectrograms,
+		followed by a WaveNet vocoder to output the final audio results. Experiments are conducted to test the
+		efficiency
+		and performance of our new network. For the efficiency, our Transformer TTS network can speed up the training
+		about
+		4.25 times faster compared with Tacotron2. For the performance, rigorous human tests show that our proposed
+		model
+		achieves state-of-the-art performance (outperforms Tacotron2 with a gap of 0.048) and is very close to human
+		quality
+		(4.39 vs 4.44 in MOS).
+		<br><br>
+		<br>
+
+		<table align=center width=600px>
+			<tr>
+				<!--<td width=300px align=left>-->
+				<!-- <a href="http://arxiv.org/pdf/1603.08511.pdf"> -->
+				<td><a href="https://arxiv.org/pdf/1809.08895.pdf"><img class="layered-paper-big" style="height:175px"
+							src="./images/transformer.png" /></a></td>
+				<td><span style="font-size:14pt">Naihan Li, Shujie Liu, Yanqing Liu, Sheng Zhao, Ming Liu, Ming Zhou<br>
+						Neural Speech Synthesis with Transformer Network.<br>
+						On ArXiv, 2019.</a>
+					</span>
+				</td>
+				</td>
+			</tr>
+		</table>
+		<br>
+		<hr>
+	</div>
+	<div id="Results" class="tabcontent">
+		<center>
+			<h1>Samples</h1>
+		</center> <br>
+
+		<table align=center style="width: 100%;" id="tableMy" border="1" border-collapse>
+
+			<tbody id="myTbody">
+				<thead>
+					<th colspan="1"><h3>Reference Text</h3></th>
+					<th colspan="1"><h3>Original Video</h3></th>
+					<th colspan="1"><h3>Deep Voice 3 - Male audio</h3></th>
+					<th colspan="1"><h3>Lipsyncnet Video</h3></th>
+				</thead>
+
+			</tbody>
+		</table>
+	</div>
+	<div id="Observations" class="tabcontent">
+		<center>
+			<h1>Observations</h1>
+		</center> <br>
+		<ul>
+			<li>Words pronunciation seems correct.</li>
+			<li>Adding prosody/style and pauses in between could make speech more natural</li>
+			<li>Model seems to struggle with sentences involving mathematics/equations</li>
+			<li>Lipsyncnet can handle a video without a face</li>
+			<li>Lips in the video are in sync with the speech</li>
+		</ul>
+	</div>
+	<script>
+		function func(evt, tabs) {
+			var i, tabcontent, tablinks;
+			tabcontent = document.getElementsByClassName("tabcontent");
+			for (i = 0; i < tabcontent.length; i++) {
+				tabcontent[i].style.display = "none";
+			}
+			tablinks = document.getElementsByClassName("tablinks");
+			for (i = 0; i < tablinks.length; i++) {
+				tablinks[i].className = tablinks[i].className.replace(" active", "");
+			}
+			document.getElementById(tabs).style.display = "block";
+			evt.currentTarget.className += " active";
+		}
+
+		// Get the element with id="defaultOpen" and click on it
+		document.getElementById("defaultOpen").click();
+
+		function insert(sen, v1, a1, v2) {
+			s = `<tr>
+					<th colspan='1' style="text-align:center"> ${sen} </th>
+					<td style="text-align:center">
+						<video controls width="240" height="160">
+							<source src=${v1} type="video/mp4">
+							Your browser does not support the video element.
+						</video>
+					</td>
+					<td style="text-align:center">
+						<audio controls="">
+							<source src=${a1} type="audio/wav">
+							Your browser does not support the audio element.
+						</audio>
+					</td>
+					<td style="text-align:center">
+						<video controls width="240" height="160">
+							<source src=${v2} type="video/mp4">
+							Your browser does not support the video element.
+						</video>
+					</td>
+				</tr>`
+			return s
+		}
+		var table = document.getElementById("myTbody");
+		table.insertAdjacentHTML("beforeend", insert("ok so now we've looked at the newton-raphson method which uses the gradient", "./vids/org/mmgd_00:00:2.00_00:00:7.00.mp4", "./audios/mmgd_dv3_m/0_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:00:2.00_00:00:7.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("to iteratively solve a 1d function of X say now we'll", "./vids/org/mmgd_00:00:7.00_00:00:12.00.mp4", "./audios/mmgd_dv3_m/1_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:00:7.00_00:00:12.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("generalize that to figure out how to do something similar with a multi dimensional function at", "./vids/org/mmgd_00:00:12.00_00:00:17.00.mp4", "./audios/mmgd_dv3_m/2_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:00:12.00_00:00:17.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("function of multiple variables and how to use the gradient to find the maxima and minima of", "./vids/org/mmgd_00:00:17.00_00:00:22.00.mp4", "./audios/mmgd_dv3_m/3_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:00:17.00_00:00:22.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("such a function later on this will let us optimize find the best fit for the", "./vids/org/mmgd_00:00:22.00_00:00:27.00.mp4", "./audios/mmgd_dv3_m/4_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:00:22.00_00:00:27.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("parameters of a function that we're trying to fit say I've got a function like f", "./vids/org/mmgd_00:00:27.00_00:00:32.00.mp4", "./audios/mmgd_dv3_m/5_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:00:27.00_00:00:32.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("equals x squared Y here this function looks like this and what I've got", "./vids/org/mmgd_00:00:32.00_00:00:37.00.mp4", "./audios/mmgd_dv3_m/6_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:00:32.00_00:00:37.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("here is a function that gets big and positive when X is big", "./vids/org/mmgd_00:00:37.00_00:00:42.00.mp4", "./audios/mmgd_dv3_m/7_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:00:37.00_00:00:42.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("f of X Y is equal to x", "./vids/org/mmgd_00:01:37.00_00:01:42.00.mp4", "./audios/mmgd_dv3_m/19_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:01:37.00_00:01:42.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("squared Y and so DF DX", "./vids/org/mmgd_00:01:42.00_00:01:47.00.mp4", "./audios/mmgd_dv3_m/20_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:01:42.00_00:01:47.00.mp4"));
+		table.insertAdjacentHTML("beforeend", insert("90 degrees to the contour line and think about the way it's defined is it up or down", "./vids/org/mmgd_00:06:12.00_00:06:17.00.mp4", "./audios/mmgd_dv3_m/74_checkpoint_step002010000.wav", "./vids/out/result_voice_mmgd_00:06:12.00_00:06:17.00.mp4"));
+	</script>
+</body>
+
+</html>
